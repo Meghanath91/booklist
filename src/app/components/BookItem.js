@@ -1,14 +1,14 @@
 import React from 'react'
 import '../../css/bookitem.css'
 
-export default function BookItem() {
+export default function BookItem({ book }) {
   return (
     <div className="bookitem-container">
-      <div className="book-name">Book Name</div>
+      <div className="book-name">{book.name}</div>
       <div>Delete</div>
-      <div>Category</div>
-      <div>Description</div>
-      <div>Price</div>
+      <div>{book.category}</div>
+      <div>{book.description}</div>
+      <div>{book.price}</div>
     </div>
   )
 }

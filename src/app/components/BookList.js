@@ -1,18 +1,18 @@
 import React from "react";
-import AddBook from "./AddBook";
+import { useSelector } from 'react-redux';
 import BookItem from "./BookItem";
 
 export default function BookList() {
+
+  let books = useSelector(state => state)
+
   return (
     <div>
       <h3>BookList app</h3>
-      <AddBook />
-      <br />
-      <BookItem />
-      <br />
-      <BookItem />
-      <br />
-      <BookItem />
+      {books.map(book => {
+        return <BookItem key={book.id} book={book}
+        />
+      })}
 
     </div>
   );

@@ -1,6 +1,6 @@
-const ADD_BOOK = "ADD_BOOK";
-const DELETE_BOOK = "DELETE_BOOK";
-const EDIT_BOOK = "EDIT_BOOK";
+export const ADD_BOOK = "ADD_BOOK";
+export const DELETE_BOOK = "DELETE_BOOK";
+export const EDIT_BOOK = "EDIT_BOOK";
 
 export function addBook(book) {
   return {
