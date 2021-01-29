@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { deleteBook } from "../redux/actions";
 import "../../css/bookitem.css";
 import deleteBtn from "../../images/delete.webp";
+
 export default function BookItem({ book }) {
   const dispatch = useDispatch();
   return (

@@ -1,14 +1,12 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { v1 as uuid } from 'uuid'
-import { addBook } from '../redux/actions'
-import Form from './Form'
-import '../../css/addbook.css'
-// import { Button } from '@material-ui/core'
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { v1 as uuid } from "uuid";
+import { addBook } from "../redux/actions";
+import Form from "./Form";
+import "../../css/addbook.css";
 
 export default function AddBook({ onClose }) {
-  const dispatch = useDispatch()
-
+  const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
@@ -31,19 +29,21 @@ export default function AddBook({ onClose }) {
     setDescription(bookDescription);
   };
   const handleAddBook = () => {
-    dispatch(addBook({
-      id: uuid(),
-      name: name,
-      category: category,
-      price: price,
-      description: description
-    }))
-    setName('')
-    setCategory('')
-    setPrice('')
-    setDescription('')
-    onClose()
-  }
+    dispatch(
+      addBook({
+        id: uuid(),
+        name: name,
+        category: category,
+        price: price,
+        description: description,
+      })
+    );
+    setName("");
+    setCategory("");
+    setPrice("");
+    setDescription("");
+    onClose();
+  };
   return (
     <div className="modal-container">
       <Form
@@ -56,7 +56,12 @@ export default function AddBook({ onClose }) {
         handlePrice={handlePrice}
         handleDescription={handleDescription}
       />
-      <input className="btn" type="button" value="Add Book" onClick={handleAddBook} />
+      <input
+        className="btn"
+        type="button"
+        value="Add Book"
+        onClick={handleAddBook}
+      />
     </div>
-  )
+  );
 }

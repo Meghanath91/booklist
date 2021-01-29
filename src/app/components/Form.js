@@ -1,5 +1,5 @@
 import React from "react";
-import '../../css/form.css'
+import "../../css/form.css";
 export default function Form({
   name,
   category,
@@ -12,10 +12,31 @@ export default function Form({
 }) {
   return (
     <div className="form-container">
-      <input placeholder="Name" onChange={handleName} value={name} type="text" />
-      <input placeholder="Category" onChange={handleCategory} value={category} type="text" />
-      <input placeholder="Price" onChange={handlePrice} value={price} type="text" />
-      <textarea className="desc-input" placeholder="Description" onChange={handleDescription} value={description} type="text"></textarea >
+      <input
+        placeholder="Name"
+        onChange={handleName}
+        value={name}
+        type="text"
+      />
+      <input
+        placeholder="Category"
+        onChange={handleCategory}
+        value={category}
+        type="text"
+      />
+      <input
+        placeholder="Price"
+        onChange={handlePrice}
+        value={price}
+        type="text"
+      />
+      <textarea
+        className="desc-input"
+        placeholder="Description"
+        onChange={handleDescription}
+        value={description}
+        type="text"
+      ></textarea>
     </div>
   );
 }

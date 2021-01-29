@@ -1,7 +1,4 @@
-
-import './App.css';
 import BookList from './app/components/BookList';
-
 
 function App() {
   return (
