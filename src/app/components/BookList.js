@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import AddBook from "./AddBook";
 import BookItem from "./BookItem";
 import addBtn from "../../images/add.png";
+import logo from "../../images/logo4.gif";
 import '../../css/booklist.css'
 
 // function rand() {
@@ -61,7 +62,14 @@ export default function BookList() {
   );
   return (
     <div>
-      <h3>BookList app</h3>
+      <div className="logo-container">
+        <img
+          className="logo"
+          src={logo}
+          alt="logo"
+        />
+        <h3>BookList app</h3>
+      </div>
       <div className="booklist-container">
         <div className="add-btn-container" onClick={handleOpen}>
           <div className="add-btn-text">Add Book</div>
