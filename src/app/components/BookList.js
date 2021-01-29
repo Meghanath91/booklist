@@ -4,29 +4,35 @@ import React, { useState } from "react";
 import { useSelector } from 'react-redux';
 import AddBook from "./AddBook";
 import BookItem from "./BookItem";
+import addBtn from "../../images/add.png";
+import '../../css/booklist.css'
 
-function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}
+// function rand() {
+//   return Math.round(Math.random() * 20) - 10;
+// }
 
-function getModalStyle() {
-  const top = 50 + rand();
-  const left = 50 + rand();
+// function getModalStyle() {
+//   const top = 50 + rand();
+//   const left = 50 + rand();
 
-  return {
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`,
-  };
-}
+//   return {
+//     top: `${top}%`,
+//     left: `${left}%`,
+//     transform: `translate(-${top}%, -${left}%)`,
+//   };
+// }
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     // margin: 'auto',
+    top: '1%',
+    left: '35%',
     position: 'absolute',
     width: '30%',
     // backgroundColor: theme.palette.background.paper,
     border: 'none',
+
+
     // borderRadius: '15px',
     // boxShadow: theme.shadows[5],
     // padding: theme.spacing(2, 1, 0),
@@ -37,7 +43,7 @@ export default function BookList() {
 
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
-  const [modalStyle] = React.useState(getModalStyle);
+  // const [modalStyle] = React.useState(getModalStyle);
 
   let books = useSelector(state => state)
   const [open, setOpen] = useState(false)
@@ -49,25 +55,36 @@ export default function BookList() {
   }
 
   const body = (
-    <div style={modalStyle} className={classes.paper}>
+    <div className={classes.paper}>
       <AddBook />
     </div>
   );
   return (
     <div>
       <h3>BookList app</h3>
-      <div onClick={handleOpen}>Add Book Button</div>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
-      >{body}</Modal>
+      <div className="booklist-container">
+        <div className="add-btn-container" onClick={handleOpen}>
+          <div className="add-btn-text">Add Book</div>
+          <img
+            className="add-del"
+            src={addBtn}
+            alt="addbtn"
+          />
+        </div>
 
-      {books.map(book => {
-        return <BookItem key={book.id} book={book}
-        />
-      })}
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+        >{body}</Modal>
+
+        {books.map(book => {
+          return <BookItem key={book.id} book={book}
+          />
+        })}
+      </div>
+
 
     </div>
   );
