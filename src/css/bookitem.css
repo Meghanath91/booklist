@@ -1,6 +1,48 @@
 .bookitem-container {
-  background-color: rgb(247, 247, 159);
-  width: 80%;
+  background-color: rgb(252, 252, 195);
+  width: 50%;
   margin: auto;
   border-radius: 15px;
+  margin-bottom: 15px;
+  text-align: left;
+  color: rgb(4, 4, 87);
+  letter-spacing: 1.5px;
+}
+.book-name-container {
+  display: flex;
+  justify-content: space-between;
+}
+.img-del {
+  width: 25px;
+  height: 25px;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+.book-name {
+  padding-left: 20px;
+  padding-top: 20px;
+  font-size: 2.3rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+}
+.desc,
+.category {
+  padding-left: 20px;
+  padding-top: 10px;
+}
+.price {
+  color: rgb(243, 97, 207);
+  font-weight: 500;
+  text-align: right;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-top: 15px;
+}
+.category {
+  font-weight: 500;
+}
+.desc {
+  font-weight: lighter;
+  line-height: 1.8rem;
+  font-size: 1.1rem;
 }
