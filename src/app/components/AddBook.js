@@ -6,7 +6,7 @@ import Form from './Form'
 import '../../css/addbook.css'
 // import { Button } from '@material-ui/core'
 
-export default function AddBook() {
+export default function AddBook({ onClose }) {
   const dispatch = useDispatch()
 
   const [name, setName] = useState("");
@@ -42,6 +42,7 @@ export default function AddBook() {
     setCategory('')
     setPrice('')
     setDescription('')
+    onClose()
   }
   return (
     <div className="modal-container">

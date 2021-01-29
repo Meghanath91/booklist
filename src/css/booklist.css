@@ -34,3 +34,21 @@
 .logo-container h3 {
   padding-top: 2%;
 }
+@media only screen and (max-width: 768px) {
+  .logo {
+    width: 150px;
+    height: 150px;
+  }
+  .logo-container h3 {
+    padding-top: 13%;
+    font-size: 1.5rem;
+  }
+  .add-btn-container {
+    margin-right: 5%;
+    margin-bottom: 2%;
+  }
+  .add-btn-text {
+    font-size: 1.3rem;
+    padding-top: 5%;
+  }
+}

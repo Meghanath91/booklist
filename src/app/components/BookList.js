@@ -7,6 +7,7 @@ import BookItem from "./BookItem";
 import addBtn from "../../images/add.png";
 import logo from "../../images/logo4.gif";
 import '../../css/booklist.css'
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 // function rand() {
 //   return Math.round(Math.random() * 20) - 10;
@@ -23,6 +24,7 @@ import '../../css/booklist.css'
 //   };
 // }
 
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     // margin: 'auto',
@@ -30,6 +32,11 @@ const useStyles = makeStyles((theme) => ({
     left: '35%',
     position: 'absolute',
     width: '30%',
+    '@media (max-width:768px)': {
+      width: '100%',
+      top: '0%',
+      left: '0%',
+    },
     // backgroundColor: theme.palette.background.paper,
     border: 'none',
 
@@ -41,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function BookList() {
-
+  const matches = useMediaQuery('(min-width:600px)');
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   // const [modalStyle] = React.useState(getModalStyle);
@@ -57,7 +64,7 @@ export default function BookList() {
 
   const body = (
     <div className={classes.paper}>
-      <AddBook />
+      <AddBook onClose={handleClose} />
     </div>
   );
   return (

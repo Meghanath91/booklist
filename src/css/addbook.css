@@ -17,3 +17,8 @@
   margin-top: 5%;
   font-size: 25px;
 }
+@media only screen and (max-width: 768px) {
+  .modal-container {
+    width: 100%;
+  }
+}
