@@ -1,0 +1,17 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  background-color: rgb(253, 253, 156);
+}
+.form-container input,
+textarea {
+  border: none;
+  border-radius: 15px;
+  font-size: 20px;
+  color: rgb(95, 83, 83);
+  padding: 25px;
+  margin: 25px;
+  letter-spacing: 2.5px;
+  outline-color: rgb(253, 181, 221);
+}

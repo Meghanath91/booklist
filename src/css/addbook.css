@@ -1,0 +1,18 @@
+.modal-container {
+  background-color: rgb(255, 244, 146);
+  padding-bottom: 100px;
+  width: 100%;
+  border-radius: 15px;
+}
+.btn {
+  background-color: rgb(255, 142, 189);
+  border: none;
+  width: 50%;
+  border-radius: 15px;
+  color: aliceblue;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-left: 25%;
+  margin-top: 5%;
+  font-size: 25px;
+}

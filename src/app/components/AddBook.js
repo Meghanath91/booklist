@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux'
 import { v1 as uuid } from 'uuid'
 import { addBook } from '../redux/actions'
 import Form from './Form'
+import '../../css/addbook.css'
+// import { Button } from '@material-ui/core'
 
 export default function AddBook() {
   const dispatch = useDispatch()
@@ -42,7 +44,7 @@ export default function AddBook() {
     setDescription('')
   }
   return (
-    <div>
+    <div className="modal-container">
       <Form
         name={name}
         category={category}
@@ -53,7 +55,7 @@ export default function AddBook() {
         handlePrice={handlePrice}
         handleDescription={handleDescription}
       />
-      <div onClick={handleAddBook}>Add book</div>
+      <input className="btn" type="button" value="Add Book" onClick={handleAddBook} />
     </div>
   )
 }
