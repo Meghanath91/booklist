@@ -3,7 +3,6 @@
   flex-direction: column;
   border-radius: 15px;
   background-color: rgb(253, 253, 156);
-  /* height: 100%; */
 }
 .form-container input,
 textarea {

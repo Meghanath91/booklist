@@ -6,7 +6,7 @@ import "../../css/bookitem.css";
 import deleteBtn from "../../images/delete.webp";
 import AddBook from "./AddBook";
 import { Modal } from "@material-ui/core";
-
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(() => ({
   paper: {
@@ -15,6 +15,7 @@ const useStyles = makeStyles(() => ({
     position: "absolute",
     width: "30%",
     border: "none",
+    outline: 0,
     "@media (max-width:768px)": {
       width: "100%",
       top: "0%",
@@ -22,26 +23,53 @@ const useStyles = makeStyles(() => ({
     },
   },
 }));
+
+/**
+   * @func BookItem
+   * @param {object} props
+   * @return {HTML}
+   */
 export default function BookItem({ book }) {
-  const classes = useStyles()
+  const classes = useStyles();
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
+
+  /**
+   * @func handleOpen
+   * @return {undefined}
+   */
   const handleOpen = () => {
     setOpen(true);
   };
+
+  /**
+   * @func handleClose
+   * @return {undefined}
+   */
   const handleClose = () => {
     setOpen(false);
   };
   const body = (
     <div className={classes.paper}>
-      <AddBook onClose={handleClose} currentId={book.id} currentName={book.name} currentCategory={book.category} currentPrice={book.price} currentDescription={book.description} edit={true} />
+      <AddBook
+        onClose={handleClose}
+        currentId={book.id}
+        currentName={book.name}
+        currentCategory={book.category}
+        currentPrice={book.price}
+        currentDescription={book.description}
+        edit={true}
+      />
     </div>
   );
 
   return (
     <div className="bookitem-container">
       <div className="book-name-container">
-        <div className="book-name" onClick={handleOpen}> {book.name}</div>
+        <div className="book-name" onClick={handleOpen}>
+          {" "}
+          {book.name}
+        </div>
         <img
           className="img-del"
           src={deleteBtn}
@@ -62,4 +90,7 @@ export default function BookItem({ book }) {
       </Modal>
     </div>
   );
+}
+BookItem.propTypes = {
+  book: PropTypes.object
 }

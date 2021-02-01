@@ -1,4 +1,5 @@
 .btn {
+  text-decoration: none;
   background-color: #fc5c65;
   border: none;
   border-radius: 15px;
@@ -9,17 +10,30 @@
   padding-top: 15px;
   font-size: 25px;
   width: 50%;
+  box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+  outline: none;
   cursor: pointer;
 }
-
+.btn:active {
+  transform: scale(0.98);
+  /* Scaling button to 0.98 to its original size */
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  /* Lowering the shadow */
+}
+.btn:hover {
+  background-color: aqua;
+}
 .err-msg {
   color: red;
   text-align: center;
 }
 .modal-container {
+  text-decoration: none;
   background-color: rgb(253, 253, 156);
   border-radius: 15px;
   padding-bottom: 100px;
+  border: none;
+  outline: 0;
 }
 
 @media only screen and (max-width: 768px) {

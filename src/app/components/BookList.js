@@ -24,13 +24,25 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
+/**
+   * @func BookList
+   * @return {HTML}
+   */
 export default function BookList() {
   const classes = useStyles();
   const books = useSelector((state) => state);
   const [open, setOpen] = useState(false);
+  /**
+   * @func handleOpen
+   * @return {undefined}
+   */
   const handleOpen = () => {
     setOpen(true);
   };
+  /**
+    * @func handleClose
+    * @return {undefined}
+    */
   const handleClose = () => {
     setOpen(false);
   };
@@ -66,3 +78,4 @@ export default function BookList() {
     </div>
   );
 }
+

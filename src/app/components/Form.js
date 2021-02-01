@@ -1,5 +1,7 @@
 import React from "react";
 import "../../css/form.css";
+import PropTypes from 'prop-types';
+
 export default function Form({
   name,
   category,
@@ -37,7 +39,17 @@ export default function Form({
         value={description}
         type="text"
       ></textarea>
-
     </div>
   );
+}
+
+Form.propTypes = {
+  name: PropTypes.string,
+  category: PropTypes.string,
+  price: PropTypes.string,
+  description: PropTypes.string,
+  handleName: PropTypes.func,
+  handleCategory: PropTypes.func,
+  handlePrice: PropTypes.func,
+  handleDescription: PropTypes.func,
 }
