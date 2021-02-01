@@ -1,4 +1,4 @@
-import { ADD_BOOK, EDIT_BOOK, DELETE_BOOK } from './actions'
+import { ADD_BOOK, UPDATE_BOOK, DELETE_BOOK } from './actions'
 import { books } from './states'
 export let reducer = (state = books, action) => {
   let newBooks;
@@ -14,8 +14,14 @@ export let reducer = (state = books, action) => {
       newBooks = newBooks.filter(book => book.id !== action.payload)
       return newBooks;
 
-    case EDIT_BOOK:
-      break;
+    case UPDATE_BOOK:
+      newBooks = [...state]
+
+      const index = newBooks.findIndex(book => {
+        return book.id === action.payload.id
+      })
+      newBooks[index] = action.payload
+      return newBooks;
     default:
 
 

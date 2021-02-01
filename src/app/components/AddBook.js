@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { v1 as uuid } from "uuid";
-import { addBook } from "../redux/actions";
+import { addBook, updateBook } from "../redux/actions";
 import Form from "./Form";
 import "../../css/addbook.css";
 
-export default function AddBook({ onClose }) {
-  const dispatch = useDispatch();
-  const [name, setName] = useState("");
-  const [category, setCategory] = useState("");
-  const [price, setPrice] = useState("");
-  const [description, setDescription] = useState("");
 
+export default function AddBook({ onClose, currentId, currentName, currentCategory, currentPrice, currentDescription, edit }) {
+  const dispatch = useDispatch();
+  const [name, setName] = useState(currentName ? currentName : "");
+  const [category, setCategory] = useState(currentCategory ? currentCategory : "");
+  const [price, setPrice] = useState(currentPrice ? currentPrice : "");
+  const [description, setDescription] = useState(currentDescription ? currentDescription : "");
+  const [error, setError] = useState('')
   const handleName = (e) => {
     const bookName = e.target.value;
     setName(bookName);
@@ -29,21 +30,32 @@ export default function AddBook({ onClose }) {
     setDescription(bookDescription);
   };
   const handleAddBook = () => {
-    dispatch(
-      addBook({
-        id: uuid(),
-        name: name,
-        category: category,
-        price: price,
-        description: description,
-      })
-    );
-    setName("");
-    setCategory("");
-    setPrice("");
-    setDescription("");
-    onClose();
+    if (name.length === 0) {
+      setError(`Name can't be blank`)
+    } else {
+      dispatch(
+        addBook({
+          id: uuid(),
+          name: name,
+          category: category,
+          price: price,
+          description: description,
+        })
+      );
+      onClose()
+    }
+    ;
   };
+  const handleUpdateBook = () => {
+    dispatch(updateBook({
+      id: currentId,
+      name: name,
+      category: category,
+      price: price,
+      description: description,
+    }))
+    onClose();
+  }
   return (
     <div className="modal-container">
       <Form
@@ -56,12 +68,19 @@ export default function AddBook({ onClose }) {
         handlePrice={handlePrice}
         handleDescription={handleDescription}
       />
-      <input
+      {error !== '' ? <p className="err-msg">{error}</p> : null}
+      {edit ? <input
         className="btn"
         type="button"
-        value="Add Book"
-        onClick={handleAddBook}
-      />
+        value="Update Book"
+        onClick={handleUpdateBook}
+      /> : <input
+          className="btn"
+          type="button"
+          value="Add Book"
+          onClick={handleAddBook}
+        />}
+
     </div>
   );
 }
