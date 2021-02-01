@@ -6,11 +6,12 @@ Please Visit https://booklista.netlify.app/
 
 ## Screenshots
 
-!["Main Page"](https://github.com/TylerZhang00/LighthouseEats/blob/master/docs/Main%20Page.png?raw=true)
+!["Main Page"](https://github.com/Meghanath91/booklist/blob/main/public/pictures/main-web.png)
 
-!["Summary Page"](https://github.com/TylerZhang00/LighthouseEats/blob/master/docs/Order%20Summary%20Page.png?raw=true)
+!["Form"](https://github.com/Meghanath91/booklist/blob/main/public/pictures/main-form.png)
 
-!["Title Page"](https://github.com/TylerZhang00/LighthouseEats/blob/master/docs/Title%20Page.png?raw=true)
+!["Mobile version"](https://github.com/Meghanath91/booklist/blob/main/public/pictures/main-mobile.png)
+
 
 ## Setup
 
